@@ -1,0 +1,36 @@
+public class Card {
+	
+	private String suit;
+	private String numbers;
+	
+	public Card(String suit, String numbers) {
+		this.suit = suit;
+		this.numbers = numbers;
+	}
+	
+	public void setSuit(String suit) {
+		this.suit = suit;
+	}
+	
+	public void setNumbers(String numbers) {
+		this.numbers = numbers;
+	}
+	
+	public void setCard(String suit, String numbers) {
+		this.suit = suit;
+		this.numbers = numbers;
+	}
+	
+	public String getSuit() {
+		return suit;
+	}
+	
+	public String getNumber() {
+		return numbers;
+	}
+		
+	public String getCard() {
+		return suit+ " " +numbers;
+	}
+	
+}
