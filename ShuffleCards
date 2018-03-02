@@ -1,0 +1,43 @@
+import java.util.Random;
+
+public class ShuffleCards {	
+
+	public static void main(String[] args) {
+		
+		Card[] cards = new Card[52];
+		setColor(cards);
+		display(cards);
+		shuffling(cards);
+		System.out.println();
+		display(cards);
+	}
+	
+	static void setColor(Card[] cards) {
+		String[] suit= {"黑桃","紅心","方塊","梅花"};
+		String[] numbers = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+		for(int i = 0; i < cards.length; i++) {
+			cards[i] = new Card(suit[i/ 13], numbers[i % 13]);
+		}
+	}
+	
+	static void display(Card[] cards) {
+		int count = 1;
+		for(Card card : cards) {
+			System.out.print(card.getCard()+"  ");
+			if (count %13 == 0) {
+				System.out.println();
+			}
+			count ++;
+		}
+	}
+	
+	static void shuffling(Card[] cards) {
+		for(int i = 0; i <cards.length; i++) {			
+			Random random = new Random();
+			int rnd = random.nextInt(cards.length)+1;
+			Card temp = new Card(cards[rnd].getSuit(), cards[rnd].getNumber());
+			cards[rnd].setCard(cards[i].getSuit(), cards[i].getNumber());
+			cards[i].setCard(temp.getSuit(), temp.getNumber());
+		}
+	}	
+}
